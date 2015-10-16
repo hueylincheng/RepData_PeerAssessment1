@@ -316,6 +316,18 @@ To compare weekdays and weekends activity patterns, we first add a new column, d
 
 ```r
 activityFilledData$day<- ifelse(weekdays(activityFilledData$date) %in% c("Saturday","Sunday"), "Weekend", "Weekday")
+
+head(activityFilledData)
+```
+
+```
+##      steps       date interval     day
+## 1 1.716981 2012-10-01        0 Weekday
+## 2 0.000000 2012-11-23        0 Weekday
+## 3 0.000000 2012-10-28        0 Weekend
+## 4 0.000000 2012-11-06        0 Weekday
+## 5 0.000000 2012-11-24        0 Weekend
+## 6 0.000000 2012-11-15        0 Weekday
 ```
 
 Aggregate average steps taken by 5-min interval and weekday/weekend

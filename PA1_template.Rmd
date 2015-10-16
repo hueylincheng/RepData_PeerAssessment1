@@ -127,6 +127,7 @@ mergedActy <- merge(activity, stepsAvgByInterval, by="interval", all=TRUE)
 
 ## Replace rows with NA steps with mean value of 5-min interval steps
 mergedActy[is.na(mergedActy$steps.x),]$steps.x <- mergedActy[is.na(mergedActy$steps.x),]$steps.y
+
 ```
 
 Create a new dataset that is equal to the original dataset but with the missing data filled in.
@@ -152,6 +153,7 @@ str(stepsTotalImputedByDate)
 ##    y as the frequency/number of days of the groups by defined on x, which is the
 ##    number of days having the total steps of x.
 hist(stepsTotalImputedByDate$steps, col="blue", xlab="Total Steps (Imputed) Per Day", main="Histogram of Total Steps (Imputed) Per Day")
+
 ```
 
 ###  Mean and Meduan of the total number of steps (imputed) taken per day are:
@@ -176,6 +178,8 @@ summary(stepsTotalImputedByDate)
 To compare weekdays and weekends activity patterns, we first add a new column, day, to show the date of a row is a weekday or a weekend.
 ```{r}
 activityFilledData$day<- ifelse(weekdays(activityFilledData$date) %in% c("Saturday","Sunday"), "Weekend", "Weekday")
+
+head(activityFilledData)
 
 ```
 
